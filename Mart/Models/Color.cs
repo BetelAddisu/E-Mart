@@ -15,5 +15,8 @@ namespace Mart.Models
         public String Picture { get; set; } 
         public string Name { get; set; }
 
+        //Connection
+        public List<Color> Colors { get; set; } 
+
     }
 }

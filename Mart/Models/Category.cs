@@ -15,5 +15,9 @@ namespace Mart.Models
 
         public String Icon { get; set; }
         public string Name { get; set; }
+
+        //CONNECTION
+
+        public List<Item> Items { get; set; } 
     }
 }

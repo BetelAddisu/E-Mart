@@ -19,6 +19,8 @@ namespace Mart.Models
         public string Name { get; set; }
         public string Bio { get; set; }
 
+        //CONECTION
+        public List<Item> Items { get; set; }
     }
 
 }

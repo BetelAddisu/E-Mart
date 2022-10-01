@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Mart.Data
+namespace Mart.Data.Enum
 {
     public enum ItemCategory
     {
