@@ -11,5 +11,7 @@ namespace Mart.Models
         public Item Item { get; set; }  
         public int ColorId { get; set; }
         public Color Color { get; set; }
+
+      
     }
 }

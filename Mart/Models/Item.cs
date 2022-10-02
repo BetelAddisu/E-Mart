@@ -38,5 +38,7 @@ namespace Mart.Models
         [ForeignKey("ProduceryId")]
         public Category Producer { get; set; }
 
+        public List<Color_Item> Colors_Items { get; set; }
+
     }
 }

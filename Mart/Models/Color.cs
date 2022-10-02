@@ -18,5 +18,7 @@ namespace Mart.Models
         //Connection
         public List<Color> Colors { get; set; } 
 
+        public List<Color_Item> Colors_Items { get; set; } 
+
     }
 }
