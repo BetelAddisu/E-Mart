@@ -1,4 +1,5 @@
 ﻿using Mart.Data;
+using Mart.Data.Services;
 using Mart.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -35,6 +36,13 @@ namespace Mart
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
 
            
+            //SERVICE  CONFUGRATION
+            services.AddScoped<IColorsService ,ColorsService >();
+
+
+
+
+
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
@@ -58,7 +66,7 @@ namespace Mart
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Item/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }

@@ -1,21 +1,26 @@
 ﻿using Mart.Data;
 using Microsoft.AspNetCore.Mvc;
+using Mart.Models;
 using System;
+using Mart.Data.Services;
 
 namespace Mart.Controllers
 {
     public class ColorsController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly IColorsService _service;
 
-        public ColorsController(AppDbContext context)
+        
+
+
+        public ColorsController(IColorsService service)
         {
-            _context = context;
+            _service = service;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var data = _context.Colors.ToList();
-            return View();
+            var data = await _service.GetAll();
+            return View(data);
         }
     }
 }
