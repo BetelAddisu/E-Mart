@@ -13,7 +13,10 @@ namespace Mart.Models
         public int Id { get; set; }
         [Display(Name ="Picture")]
 
+        [Required(ErrorMessage ="Picture Required")]
         public String Picture { get; set; }
+
+        [Required(ErrorMessage = "Name Required")]
 
         [Display(Name = "Name")]
         public string Name { get; set; }

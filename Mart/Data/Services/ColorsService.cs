@@ -1,5 +1,6 @@
 ﻿using Mart.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Collections.Generic;
 namespace Mart.Data.Services
 {
@@ -10,30 +11,38 @@ namespace Mart.Data.Services
         {
             _context = context;
         }
-        public void Add(Color color)
+        public async Task AddAsync(Color color)
         {
-            throw new NotImplementedException();
+             _context.Colors.Add(color); 
+            await _context.SaveChangesAsync();     
         }
 
-        public void Delet(int id)
+        public async Task DeletAsync(int id)
         {
-            throw new NotImplementedException();
+            var result = await _context.Colors.FirstOrDefaultAsync(i => i.Id == id);
+           _context.Colors.Remove(result);
+            await _context.SaveChangesAsync();
+
+
         }
 
-       public async Task<IEnumerable<Color>> GetAll()
+        public async Task<IEnumerable<Color>> GetAllAsync()
         {
         var result =await  _context.Colors.ToListAsync();
             return result;
         }
 
-        public Color GetById(int id)
+        public async Task<IEnumerable<Color>> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var result = await _context.Colors.FirstOrDefaultAsync(i => i.Id == id);
+            return result;
         }
 
-        public Color Update(int id, Color newColor)
+        public async Task<Color> UpdateAsync(int id, Color newColor)
         {
-            throw new NotImplementedException();
+            _context.Update(newColor);
+            await _context.SaveChangesAsync();          
+            return newColor;    
         }
     }
 }

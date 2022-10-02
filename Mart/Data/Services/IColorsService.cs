@@ -6,14 +6,14 @@ namespace Mart.Data.Services
 {
     public interface IColorsService
     {
-       Task <IEnumerable<Color>> GetAll();
+       Task <IEnumerable<Color>> GetAllAsync();
 
-        Color GetById(int id);
+        Color GetByIdAsync(int id);
 
-        void Add(Color color);  
+        Task AddAsync(Color color);  
 
-        Color Update(int id, Color newColor);
+        Task<Color> UpdateAsync(int id, Color newColor);
 
-        void Delet(int id); 
+        Task DeleteAsync(int id); 
     }
 }
