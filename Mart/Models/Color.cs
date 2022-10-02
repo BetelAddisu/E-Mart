@@ -11,8 +11,11 @@ namespace Mart.Models
         [Key]
 
         public int Id { get; set; }
+        [Display(Name ="Picture")]
 
-        public String Picture { get; set; } 
+        public String Picture { get; set; }
+
+        [Display(Name = "Name")]
         public string Name { get; set; }
 
         //Connection

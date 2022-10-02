@@ -13,9 +13,9 @@ namespace Mart.Models
     {
         [Key]
         public int Id { get; set; }
-         
+
         public string Name { get; set; }
-        [Required]  
+        
 
         public string Description { get; set; }
         public double Price { get; set; }
@@ -36,9 +36,7 @@ namespace Mart.Models
         //Producer
         public int ProducerId { get; set; }
         [ForeignKey("ProduceryId")]
-        public Category Producer { get; set; }
-
-        
-
+        public Producer Producer { get; set; }
+        public Item Item { get; set; }
     }
 }

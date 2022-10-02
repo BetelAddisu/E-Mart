@@ -13,7 +13,8 @@ namespace Mart.Data.Enum
         Food,
         Electronics,
         Automobile,
-        House
+        House,
+        Furniture
 
     }
 }

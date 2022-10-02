@@ -15,8 +15,13 @@ namespace Mart.Models
 
         public int Id { get; set; }
 
+        [Display(Name = "Picture")]
         public String Picture { get; set; }
+
+        [Display(Name = "Name")]
         public string Name { get; set; }
+
+        [Display(Name = "Bio")]
         public string Bio { get; set; }
 
         //CONECTION

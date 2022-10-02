@@ -13,12 +13,16 @@ namespace Mart.Models
 
         public int Id { get; set; }
 
+        [Display(Name = "Icon")]
         public String Icon { get; set; }
+        
+
+        [Display(Name = "Name")]
         public string Name { get; set; }
 
         //CONNECTION
 
-       // public List<Item> Items { get; set; }
+        public List<Item> Items { get; set; }
 
     }
 }

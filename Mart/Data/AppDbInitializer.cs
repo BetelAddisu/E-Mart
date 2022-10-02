@@ -50,6 +50,11 @@ namespace Mart.Data
                             Name = "House",
                             Icon = "file:///C:/Users/betel/source/repos/Mart/Mart/wwwroot/Image/House.jpg",
                         },
+                        new Category()
+                        {
+                            Name = "Furniture",
+                            Icon = "file:///C:/Users/betel/source/repos/Mart/Mart/wwwroot/Image/Furniture.jpg",
+                        },
                     });
                     context.SaveChanges();
 
@@ -79,6 +84,11 @@ namespace Mart.Data
                         {
                             Name = "Blue",
                             Picture = "file:///C:/Users/betel/source/repos/Mart/Mart/wwwroot/Image/Blue.jpg"
+                        },
+                        new Color()
+                        {
+                            Name = "Wooden",
+                            Picture = "file:///C:/Users/betel/source/repos/Mart/Mart/wwwroot/Image/wooden.jpg"
                         }
                     });
                     context.SaveChanges();
@@ -119,6 +129,17 @@ namespace Mart.Data
                             ProducerId = 1,
                             ItemCategory = ItemCategory.Clothing
                         },
+                            new Item()
+                        {
+                            Name = "Tabel",
+                            Description = "This is the Tabel description",
+                            Price = 99.50,
+                            ImageURL = "file:///C:/Users/betel/source/repos/Mart/Mart/wwwroot/Image/Tabel.Jpg",
+                            ManufacturedDate = DateTime.Now.AddMonths(-10),
+                            ProducerId = 2,
+                            ItemCategory = ItemCategory.Furniture
+                        },
+
 
                           new Item()
                         {
@@ -240,6 +261,12 @@ namespace Mart.Data
                         new Producer()
                         {
                            Name = "Toyota",
+                            Bio = "This is the Bio of the Manufacrurer",
+                            Picture = "file:///C:/Users/betel/source/repos/Mart/Mart/wwwroot/Image/Toyota.png"
+                        },
+                         new Producer()
+                        {
+                           Name = "",
                             Bio = "This is the Bio of the Manufacrurer",
                             Picture = "file:///C:/Users/betel/source/repos/Mart/Mart/wwwroot/Image/Toyota.png"
                         },

@@ -1,12 +1,22 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Mart.Data;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace Mart.Controllers
 {
     public class CategoriesController : Controller
     {
-        public IActionResult Index()
+        private readonly AppDbContext _context;
+
+        public CategoriesController(AppDbContext context)
         {
-            return View();
+            _context = context;
+        }
+        public async Task<IActionResult> Index()
+        {
+            var allCategories = await _context.Categories.ToListAsync();
+            return View(allCategories);
         }
     }
 }
