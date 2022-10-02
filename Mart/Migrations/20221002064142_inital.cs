@@ -36,11 +36,7 @@ namespace Mart.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Colors", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Colors_Colors_ColorId",
-                        column: x => x.ColorId,
-                        principalTable: "Colors",
-                        principalColumn: "Id");
+                   
                 });
 
             migrationBuilder.CreateTable(

@@ -81,6 +81,8 @@ namespace Mart
                     pattern: "{controller=Items}/{action=Index}/{id?}");
             });
 
+            //SEEDING DATABASE
+            AppDbInitializer.Seed(app);
            
         }
     }

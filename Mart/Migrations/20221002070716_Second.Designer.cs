@@ -4,6 +4,7 @@ using Mart.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Mart.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221002070716_Second")]
+    partial class Second
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,6 +53,9 @@ namespace Mart.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int?>("ColorId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -60,6 +65,8 @@ namespace Mart.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ColorId");
 
                     b.ToTable("Colors");
                 });
@@ -156,6 +163,13 @@ namespace Mart.Migrations
                     b.ToTable("Producers");
                 });
 
+            modelBuilder.Entity("Mart.Models.Color", b =>
+                {
+                    b.HasOne("Mart.Models.Color", null)
+                        .WithMany("Colors")
+                        .HasForeignKey("ColorId");
+                });
+
             modelBuilder.Entity("Mart.Models.Color_Item", b =>
                 {
                     b.HasOne("Mart.Models.Color", "Color")
@@ -202,6 +216,8 @@ namespace Mart.Migrations
 
             modelBuilder.Entity("Mart.Models.Color", b =>
                 {
+                    b.Navigation("Colors");
+
                     b.Navigation("Colors_Items");
                 });
 
