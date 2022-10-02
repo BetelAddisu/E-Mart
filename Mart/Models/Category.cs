@@ -18,6 +18,7 @@ namespace Mart.Models
 
         //CONNECTION
 
-        public List<Item> Items { get; set; } 
+       // public List<Item> Items { get; set; }
+
     }
 }

@@ -26,7 +26,7 @@ namespace Mart.Models
 
         //CONNECTION
 
-        public List<Item> Items { get; set; }
+        public List<Color_Item> Colors_Items { get; set; }
 
         //CATEGORY
         public int CategoryId { get; set; }
@@ -38,7 +38,7 @@ namespace Mart.Models
         [ForeignKey("ProduceryId")]
         public Category Producer { get; set; }
 
-        public List<Color_Item> Colors_Items { get; set; }
+        
 
     }
 }

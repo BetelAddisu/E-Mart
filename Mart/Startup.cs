@@ -1,6 +1,4 @@
 ﻿using Mart.Data;
-using Mart.Data.Cart;
-using Mart.Data.Services;
 using Mart.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -36,18 +34,11 @@ namespace Mart
             //DbContext configuration
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
 
-            //Services configuration
-            services.AddScoped<IColorService, ColorService>();
-            services.AddScoped<IProducersService, ProducersService>();
-            services.AddScoped<ICategoryService, CatagoryService>();
-            services.AddScoped<IItemService, ItemService>();
-            services.AddScoped<IOrdersService, OrdersService>();
+           
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
 
             //Authentication and authorization
-            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
             services.AddMemoryCache();
             services.AddSession();
             services.AddAuthentication(options =>
@@ -87,14 +78,11 @@ namespace Mart
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Movies}/{action=Index}/{id?}");
+                    pattern: "{controller=Items}/{action=Index}/{id?}");
             });
 
-            //Seed database
-            AppDbInitializer.Seed(app);
-            AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
+           
         }
     }
 }
-    }
-}
+    
